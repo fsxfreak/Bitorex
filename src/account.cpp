@@ -13,34 +13,34 @@ float Account::getCoin() const { return coin; }
 
 void Account::printStatement() const 
 {
-	std::cout << "You have " << fiat << " in fiat and "
-							 << coin << " BTC." << std::endl;
+    std::cout << "You have " << fiat << " in fiat and "
+                             << coin << " BTC." << std::endl;
 }
 
 void Account::printOrders() const
 {
-	if (longOrders.size() > 0)
-	{
-		std::cout << "Long orders: " << std::endl;
-		std::map<int, double>::const_iterator it    = longOrders.begin();
-		auto							      itend = longOrders.end();
+    if (longOrders.size() > 0)
+    {
+        std::cout << "Long orders: " << std::endl;
+        std::map<int, double>::const_iterator it    = longOrders.begin();
+        auto                                  itend = longOrders.end();
 
-		for (; it != itend; ++it)
-		{
-			std::cout << "ID: " << it->first << "\tCoins: " << it->second << std::endl; 
-		}
-	}
+        for (; it != itend; ++it)
+        {
+            std::cout << "ID: " << it->first << "\tCoins: " << it->second << std::endl; 
+        }
+    }
 
-	if (shortOrders.size() > 0)
-	{
-		std::cout << "Short orders: " << std::endl;
-		std::map<int, double>::const_iterator it    = shortOrders.begin();
-		auto							      itend = shortOrders.end();
+    if (shortOrders.size() > 0)
+    {
+        std::cout << "Short orders: " << std::endl;
+        std::map<int, double>::const_iterator it    = shortOrders.begin();
+        auto                                  itend = shortOrders.end();
 
-		for (; it != itend; ++it)
-		{
-			std::cout << "ID: " << it->first << "\tFiat: " << it->second << std::endl; 
-		}
-	}
-		
+        for (; it != itend; ++it)
+        {
+            std::cout << "ID: " << it->first << "\tFiat: " << it->second << std::endl; 
+        }
+    }
+        
 }
