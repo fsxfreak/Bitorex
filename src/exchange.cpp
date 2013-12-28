@@ -9,6 +9,7 @@
 #endif
 #include <ctime>
 #include <chrono>
+#include <fstream>
 #include <iomanip>
 #include <mutex>
 #include <thread>
@@ -24,11 +25,21 @@ volatile double buy;
 volatile double sell;
 volatile bool run = true;
 Account account;
+extern std::string filename;
 
 size_t curlToString(void *ptr, size_t size, size_t nmemb, void *data);
 std::string getWebpage(const std::string &webpage);
 void printTime();
 void printAll();
+
+void writeAccountToFile()
+{
+    std::ofstream out(filename.c_str());
+    out << account.getFiat();
+    out << '\n';
+    out << account.getCoin();
+    out.close();
+}
 
 Exchange::Exchange()
 {
@@ -84,6 +95,10 @@ void Exchange::takeOrders()
         std::cout << "Quitting...(max 5 seconds)." << std::endl;
         run = false;
         break;
+    case 's':
+        std::cout << "Saving account." << std::endl;
+        writeAccountToFile();
+        break;
     default:
         break;
     }
@@ -138,7 +153,7 @@ void Exchange::transactSell()
     amount = amount > account.fiat ? account.fiat : amount;
 
     lock.lock();
-    float coins = amount / buy;
+    float coins = amount / sell;
     lock.unlock();
 
     amount -= amount * FEE;

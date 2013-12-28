@@ -39,14 +39,7 @@ Account readAccountFromFile(const std::string &filename)
     return account;
 }
 
-void writeAccountToFile(const std::string &filename, const Account &account)
-{
-    std::ofstream out(filename.c_str());
-    out << account.getFiat();
-    out << '\n';
-    out << account.getCoin();
-    out.close();
-}
+void writeAccountToFile();
 
 void printUsage()
 {
@@ -55,16 +48,19 @@ void printUsage()
               << "Buy:          w\n"
               << "Sell:         e\n"
               << "Close buy:    r\n"
-              << "Close sell:   t\n" << std::endl;  
+              << "Close sell:   t\n" 
+              << "Save account: s\n" << std::endl;  
 }
+
+std::string filename;
 
 int main(int argc, char *argv[])
 {
     printUsage();
-    std::string filename = getFilename(argc, argv);
+    filename = getFilename(argc, argv);
     account = readAccountFromFile(filename);
     
     runExchange();
 
-    writeAccountToFile(filename, account);
+    writeAccountToFile();
 }
