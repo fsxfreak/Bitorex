@@ -58,8 +58,9 @@ Sorry, I don't have any specific step-by-step instructions. Download a precompil
 Quit       - Q
 Buy        - W
 Sell       - E
-Close buy  - R
-Close sell - T
+Close buy  - S
+Close sell - D
+Save	   - A
 ```
 **Defining an account**
 

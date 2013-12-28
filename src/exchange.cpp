@@ -85,19 +85,20 @@ void Exchange::takeOrders()
     case 'e':           //sell button
         transactSell();
         break;
-    case 'r':           //close buy
+    case 's':           //close buy
         transactCloseBuy();
         break;
-    case 't':           //close sell
+    case 'd':           //close sell
         transactCloseSell();
         break;
     case 'q':           //quit
         std::cout << "Quitting...(max 5 seconds)." << std::endl;
         run = false;
         break;
-    case 's':
-        std::cout << "Saving account." << std::endl;
+    case 'a':
+        std::cout << "Saving account..." << std::endl;
         writeAccountToFile();
+        std::cout << "Saved." << std::endl;
         break;
     default:
         break;

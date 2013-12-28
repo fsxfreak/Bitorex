@@ -47,9 +47,9 @@ void printUsage()
     std::cout << "Quit:         q\n"
               << "Buy:          w\n"
               << "Sell:         e\n"
-              << "Close buy:    r\n"
-              << "Close sell:   t\n" 
-              << "Save account: s\n" << std::endl;  
+              << "Close buy:    s\n"
+              << "Close sell:   d\n" 
+              << "Save account: a\n" << std::endl;  
 }
 
 std::string filename;
