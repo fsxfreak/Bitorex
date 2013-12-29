@@ -57,8 +57,8 @@ Sorry, I don't have any specific step-by-step instructions. Download a precompil
 ```
 Quit       - Q
 Buy        - W
-Sell       - E
 Close buy  - S
+Sell       - E
 Close sell - D
 Save	   - A
 ```
@@ -93,7 +93,7 @@ In the future, I want to make an actual GUI with graph displays, ask/bid tickers
 
 The MIT License (MIT)
 
-Copyright (c) <2013> <Leon Cheung>
+Copyright (c) 2013 Leon Cheung
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
