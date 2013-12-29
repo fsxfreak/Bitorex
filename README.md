@@ -3,14 +3,14 @@ Bitorex
 
 Bitorex is a small weekend pet project to satisfy my renewed interest in Bitcoin and a newfound curiosity for trading currency and stocks in general. It simulates a Bitcoin exchange, where you can make buy (long) or sell (short) trades.
 
-Bitorex runs in the Windows command line. Trade requests are done by pressing a button (W, E, R, T) and typing a number. No fancy command prompt graphics library was used, so everything is displayed and inputted using stdout and stdin. 
+Bitorex runs in the Windows command line. Trade requests are done by pressing a button (W, S, E, F) and typing a number. No fancy command prompt graphics library was used, so everything is displayed and inputted using stdout and stdin. 
 
 ## Exploring
 
 The source for Bitorex is found under src/.
 * ```account.hpp``` - Declares the Account struct, where the trader's money and trade history is stored.
 * ```account.cpp``` - Defines all the boilerplate for Account and some printing functions.
-* ```exchange.hpp``` - Declares the Exchange struct, where the ticker is updated and orders are placed. Here the FEE constant is defined.
+* ```exchange.hpp``` - Declares the Exchange struct, where the ticker is updated and orders are placed. Here the `FEE` constant is defined.
 * ```exchange.cpp``` - Here's where the main bulk of the code is. Defines self-contained functions for pulling from HTTPS webpages and parsing JSON. Also defines functions that update the ticker, place orders, prints information, and gets user input.
 * ```main.cpp``` - Contains ```main()```. Handles read/write of the trader's account, as well as starting the exchange. 
 
