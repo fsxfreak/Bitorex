@@ -81,23 +81,29 @@ void Exchange::takeOrders()
 {
     switch (_getch())
     {
-    case 'w':           //buy button
+    case 'w':
+    case 'W':           //buy button
         transactBuy();
         break;
-    case 'e':           //sell button
+    case 'e': 
+    case 'E':           //sell button
         transactSell();
         break;
-    case 's':           //close buy
+    case 's': 
+    case 'S':           //close buy
         transactCloseBuy();
         break;
-    case 'd':           //close sell
+    case 'd':
+    case 'D':           //close sell
         transactCloseSell();
         break;
-    case 'q':           //quit
+    case 'q':
+    case 'Q':           //quit
         std::cout << "Quitting...(max 5 seconds)." << std::endl;
         run = false;
         break;
     case 'a':
+    case 'A':
         std::cout << "Saving account..." << std::endl;
         writeAccountToFile();
         std::cout << "Saved." << std::endl;
