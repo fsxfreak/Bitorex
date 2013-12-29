@@ -31,6 +31,8 @@ size_t curlToString(void *ptr, size_t size, size_t nmemb, void *data);
 std::string getWebpage(const std::string &webpage);
 void printTime();
 void printAll();
+double calculateRateToEvenLong(double fiat, double coins);
+double calculateRateToEvenShort(double coins, double fiat);
 
 void writeAccountToFile()
 {
@@ -124,6 +126,9 @@ void Exchange::transactBuy()
 
     Account::numOrders++;
     account.longOrders.emplace(std::make_pair(Account::numOrders, coins));
+
+    std::cout << "You need to sell at: " << calculateRateToEvenLong(amount, coins)
+              << " USD to break even." << std::endl;
 }
 
 //return the gross profit
@@ -163,6 +168,9 @@ void Exchange::transactSell()
 
     Account::numOrders++;
     account.shortOrders.emplace(std::make_pair(Account::numOrders, coins));
+
+    std::cout << "You need to buy back at: " << calculateRateToEvenShort(coins, amount)
+              << " USD to break even." << std::endl;
 }
 
 void Exchange::transactCloseSell()
@@ -334,4 +342,19 @@ void printTime()
               << min  << ":" 
               << std::setw(2) << std::setfill('0')
               << sec  << std::endl;
+}
+
+double calculateRateToEvenLong(double fiat, double coins)
+{
+    double rate = fiat / coins;
+    rate *= (1 + FEE);  //account for the fee
+    return rate;
+
+}
+
+double calculateRateToEvenShort(double coins, double fiat)
+{
+    double rate = fiat / coins;
+    rate *= (1 - FEE);
+    return rate;
 }
